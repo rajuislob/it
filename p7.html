@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Information</title>
+    
+</head>
+<body>
+    <h1>Pets Information</h1>
+
+    <div id="petData" class="pet-container">
+        <!-- Pets data will be dynamically added here -->
+    </div>
+
+    <script>
+        // Function to generate a random vibrant color
+       
+
+        // Function to load JSON data using AJAX
+        function loadPetsData() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var pets = JSON.parse(xhr.responseText);
+                    displayPets(pets);
+                }
+            };
+            xhr.open("GET", "data.json", true);
+            xhr.send();
+        }
+
+        // Function to display pets data
+        function displayPets(pets) {
+            var petContainer = document.getElementById("petData");
+
+            pets.forEach(function(pet) {
+                var petCard = document.createElement("div");
+                petCard.innerHTML = `
+                    <h2>${pet.name}</h2>
+                    <p>Age: ${pet.age}</p>
+                    <p>Weight: ${pet.weight}</p>
+                    <p>Type: ${pet.type}</p>
+                    <p>Likes: ${pet.likes}</p>
+                `;
+                petContainer.appendChild(petCard);
+            });
+        }
+
+        // Load pets data when the page is loaded
+        window.onload = function() {
+            loadPetsData();
+        };
+    </script>
+</body>
+</html>
