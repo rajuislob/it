@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiplication Tables</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    .multiplication-table {
+      margin: 10px;
+      transition: font-size 0.5s, background-color 0.5s;
+    }
+
+    .multiplication-table th, .multiplication-table td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 10px;
+      width: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="multiplicationTablesContainer"></div>
+
+<script>
+function generateRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function generateMultiplicationTable(factor, columns, fontSize, bgColor) {
+  let tableHtml = `<table class="multiplication-table" style="font-size: ${fontSize}px; background-color: ${bgColor};"><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr>`;
+  for (let i = 1; i <= 10; i++) {
+    tableHtml += `<tr><td>${factor} x ${i} = ${factor * i}</td></tr>`;
+  }
+  tableHtml += `</table>`;
+  return tableHtml;
+}
+
+const totalTables = 10;
+let currentTable = 2;
+let fontSize = 16; // Initial font size
+
+function displayNextTable() {
+  if (currentTable > totalTables) {
+    clearInterval(intervalId); // Stop the interval when all tables are displayed
+  } else {
+    const bgColor = generateRandomColor();
+    const tableHtml = generateMultiplicationTable(currentTable, 10, fontSize, bgColor);
+    $('#multiplicationTablesContainer').append(tableHtml);
+    currentTable++;
+    fontSize += 2; // Increase font size for the next table
+  }
+}
+
+// Set interval to append tables every 5000 milliseconds (5 seconds)
+const intervalId = setInterval(displayNextTable, 5000);
+</script>
+
+</body>
+</html>
