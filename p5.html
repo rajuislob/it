@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Add initial styles for the paragraph */
+        #paragraph {
+            color: black; /* Default color */
+            font-size: 16px; /* Default font size */
+            font-family: Arial, sans-serif; /* Default font family */
+        }
+    </style>
+</head>
+<body>
+    <h1>Button Grid Example</h1>
+    <!-- Add the paragraph with the id "paragraph" -->
+    <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+    <div id="button-grid">
+        <button class="button" onclick="changeColor('red')">Red</button>
+        <button class="button" onclick="changeColor('green')">Green</button>
+        <button class="button" onclick="changeColor('blue')">Blue</button>
+        <button class="button" onclick="changeFontSize(10)">10</button>
+        <button class="button" onclick="changeFontSize(20)">20</button>
+        <button class="button" onclick="changeFontSize(30)">30</button>
+        <button class="button" onclick="changeFont('Arial')">Arial</button>
+        <button class="button" onclick="changeFont('Times New Roman')">Times New Roman</button>
+        <button class="button" onclick="changeFont('Courier New')">Courier New</button>
+    </div>
+
+    <script>
+        function changeColor(color) {
+            document.getElementById('paragraph').style.color = color;
+        }
+
+        function changeFontSize(fontSize) {
+            document.getElementById('paragraph').style.fontSize = fontSize + 'px';
+        }
+
+        function changeFont(font) {
+            document.getElementById('paragraph').style.fontFamily = font;
+        }
+    </script>
+</body>
+</html>
