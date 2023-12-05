@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>B.Sc. Hons Computer Science</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bachelor of Science (B.Sc. Hons) in Computer Science</h1>
+        <h2>Course Details</h2>
+        <p><strong>Fee:</strong> &#8377 27000 per year</p>
+        <p><strong>Eligibility Criteria:</strong> Minimum 12th-grade education with a focus on mathematics and computer
+            science subjects.</p>
+        <p><strong>Papers with Names and Credits:</strong></p>
+        <ul>
+            <li>Introduction to Computer Science (4 credits)</li>
+            <li>Data Structures and Algorithms (4 credits)</li>
+            <li>Database Management (4 credits)</li>
+            <li>Web Development (4 credits)</li>
+            <li>Artificial Intelligence (4 credits)</li>
+        </ul>
+        <h2>Future Possibilities</h2>
+        <p>After completing this course, you can pursue various career options such as software development, data
+            analysis, network administration, and more.</p>
+        <p>Click the button below to style the page:</p>
+        <button id="styleButton">Style Page</button>
+    </div>
+    <script>
+        // jQuery function to style the page on button click
+        $(document).ready(function () {
+            $("#styleButton").click(function () {
+                $("body").css({
+                    "font-family": "Arial , sans-serif",
+                    "margin": "0",
+                    "padding": "0",
+                    "background-color": "#f2f2f2",
+                });
+
+                $(".container").css({
+                    "max-width": "900px",
+                    "margin": "0 auto",
+                    "padding": "20px",
+                    "background-color": "#fff",
+                    "border-radius": "5px",
+                    "box-shadow": "0 0 10px rgba(0, 0, 0, 0.1)",
+                });
+
+                $("button").css({
+                    "background-color": "#007bff",
+                    "color": "#fff",
+                    "border": "none",
+                    "padding": "10px 20px",
+                    "border-radius": "3px",
+                    "cursor": "pointer",
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
